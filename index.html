@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Class Scheduling System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Smart Class Scheduling System</h1>
+    </header>
+    <main>
+        <section id="preferences">
+            <h2>Enter Your Preferences</h2>
+            <form id="preferences-form" action="process_preferences.php" method="POST">
+                <label for="courses">Preferred Courses:</label>
+                <input type="text" id="courses" name="courses" placeholder="Course1, Course2, Course3">
+                
+                <label for="activities">Extracurricular Activities:</label>
+                <input type="text" id="activities" name="activities" placeholder="Activity1, Activity2">
+                
+                <label for="study-habits">Study Habits:</label>
+                <input type="text" id="study-habits" name="study_habits" placeholder="Morning, Evening">
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="teacher-schedules">
+            <h2>Enter Teachers' Schedules</h2>
+            <form id="teacher-schedules-form" action="process_teacher_schedules.php" method="POST">
+                <label for="teacher-name">Teacher's Name:</label>
+                <input type="text" id="teacher-name" name="teacher_name" placeholder="Teacher Name">
+                
+                <label for="available-courses">Available Courses:</label>
+                <input type="text" id="available-courses" name="available_courses" placeholder="Course1, Course2">
+                
+                <label for="available-days">Available Days:</label>
+                <input type="text" id="available-days" name="available_days" placeholder="Monday, Tuesday">
+                
+                <label for="time-slots">Time Slots:</label>
+                <input type="text" id="time-slots" name="time_slots" placeholder="9:00-10:00, 10:00-11:00">
+                
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="schedule">
+            <h2>Your Optimized Schedule</h2>
+            <div id="schedule-output">
+                <?php if (isset($_GET['schedule'])): ?>
+                    <?php echo htmlspecialchars($_GET['schedule']); ?>
+                <?php endif; ?>
+            </div>
+        </section>
+    </main>
+    <script src="../assets/js/script.js"></script>
+</body>
+</html>
